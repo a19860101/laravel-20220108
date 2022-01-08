@@ -7,9 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="{{route('product.create')}}">新增商品</a>
-    </nav>
+    @include('admin.template.nav')
+
     <h2>商品列表</h2>
     <div>
         @foreach ($products as $product)
@@ -19,6 +18,7 @@
                     <h3>{{$product->title}}</h3>
                     <div>{{$product->price}}</div>
                 </div>
+                <a href="{{route('product.edit',['product'=>$product->id])}}">編輯商品資料</a>
                 <form action="{{route('product.destroy',['product'=>$product->id])}}" method="post">
                     @csrf
                     @method('delete')

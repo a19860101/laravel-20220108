@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="{{route('product.create')}}">新增商品</a>
-    </nav>
+    @include('admin.template.nav')
+
 </body>
 </html>
