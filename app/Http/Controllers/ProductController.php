@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -37,6 +38,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        if($request->file('cover')){
+            $ext = $request->file('cover')->getClientOriginalExtension();
+            $cover = Str::uuid().'.'.$ext;
+        }else{
+            $cover = null;
+        }
+
+        $product = new Product;
+        $product->fill($request->all());
+        $product->cover = $cover;
+
+        $product->save();
     }
 
     /**

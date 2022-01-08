@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>新增商品</h2>
-    <form action="" method="post">
+    <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <label for="title">商品名稱</label>
