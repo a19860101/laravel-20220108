@@ -19,6 +19,11 @@
                     <h3>{{$product->title}}</h3>
                     <div>{{$product->price}}</div>
                 </div>
+                <form action="{{route('product.destroy',['product'=>$product->id])}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="刪除商品" onclick="return confirm('確認刪除？')">
+                </form>
                 <hr>
             </div>
         @endforeach
