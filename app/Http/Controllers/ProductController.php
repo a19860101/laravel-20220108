@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Redirect;
 
 class ProductController extends Controller
 {
@@ -16,6 +17,8 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products = Product::orderBy('id','DESC')->get();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -41,6 +44,7 @@ class ProductController extends Controller
         if($request->file('cover')){
             $ext = $request->file('cover')->getClientOriginalExtension();
             $cover = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$cover,'public');
         }else{
             $cover = null;
         }
@@ -50,6 +54,8 @@ class ProductController extends Controller
         $product->cover = $cover;
 
         $product->save();
+
+        return Redirect::route('product.index');
     }
 
     /**
