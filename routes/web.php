@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin',function(){
     return view('admin.index');
-});
+})->name('admin.index');
 
 Route::resource('admin/product','ProductController');
 Route::resource('admin/category','CategoryController');
