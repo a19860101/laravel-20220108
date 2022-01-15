@@ -29,6 +29,10 @@
                     <label for="price" class="form-label">售價</label>
                     <input type="text" name="price" id="price" value="{{$product->price}}" class="form-control">
                 </div>
+                <div class="mb-3">
+                    <label for="sale" class="form-label">特價</label>
+                    <input type="text" name="sale" id="sale" value="{{$product->sale}}" class="form-control">
+                </div>
                 <div>
                     <label for="cover" class="form-label">商品圖片</label>
                     @if($product->cover != null)
