@@ -54,6 +54,7 @@ class ProductController extends Controller
         $product = new Product;
         $product->fill($request->all());
         $product->cover = $cover;
+        $product->category_id = $request->category_id;
 
         $product->save();
 
@@ -80,8 +81,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::get();
 
-        return view('admin.product.edit',compact('product'));
+        return view('admin.product.edit',compact('product','categories'));
     }
 
     /**
@@ -101,6 +103,7 @@ class ProductController extends Controller
         }
 
         $product->fill($request->all());
+        $product->category_id = $request->category_id;
         $product->save();
 
         // return Redirect::route('product.edit');
