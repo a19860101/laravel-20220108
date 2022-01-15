@@ -11,6 +11,9 @@
                 <img src="{{asset('images/'.$product->cover)}}" width="300">
             </div>
             <div>
+                分類:{{$product->category->title}}
+            </div>
+            <div>
                 {{$product->description}}
             </div>
             <div>

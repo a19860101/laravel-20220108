@@ -10,6 +10,7 @@
                     <tr>
                         <th>商品編號</th>
                         <th>商品名稱</th>
+                        <th>商品分類</th>
                         <th>商品價格</th>
                         <th>商品圖片</th>
                     </tr>
@@ -19,6 +20,7 @@
                     <tr>
                         <td>{{$product->id}}</td>
                         <td>{{$product->title}}</td>
+                        <td>{{$product->category->title}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->cover}}</td>
                         <td>
