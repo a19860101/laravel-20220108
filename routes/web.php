@@ -25,5 +25,5 @@ Route::get('admin',function(){
     return view('admin.index');
 })->name('admin.index');
 
-Route::resource('admin/product','ProductController');
-Route::resource('admin/category','CategoryController');
+Route::resource('admin/product','ProductController')->middleware('auth');
+Route::resource('admin/category','CategoryController')->middleware('auth');
