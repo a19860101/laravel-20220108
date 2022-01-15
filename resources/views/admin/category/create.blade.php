@@ -23,8 +23,17 @@
         </form>
     </div>
     <div>
-        <ul>
-            <li></li>
+        <ul class="list-group">
+            @foreach ($datas as $data)
+            <li class="list-group-item">
+                {{$data->title}}
+                <form action="{{route('category.destroy',['category'=>$data->id])}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="刪除" class="btn btn-danger" onclick="return confirm('確認刪除？')">
+                </form>
+            </li>
+            @endforeach
         </ul>
     </div>
 </body>

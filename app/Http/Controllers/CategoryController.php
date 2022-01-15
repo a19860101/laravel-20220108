@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Redirect;
 
 class CategoryController extends Controller
 {
@@ -25,7 +26,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.category.create');
+        $datas = Category::get();
+        return view('admin.category.create',compact('datas'));
     }
 
     /**
@@ -37,6 +39,9 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        Category::create($request->all());
+
+        return Redirect::route('category.create');
     }
 
     /**
