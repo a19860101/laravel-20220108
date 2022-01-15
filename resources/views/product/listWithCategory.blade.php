@@ -9,21 +9,24 @@
             </div>
             @endif
             @foreach($products as $product)
+
             <div class="col-3">
-                <img src="{{asset('images/'.$product->cover)}}" class="w-100">
-                <h3>{{$product->title}}</h3>
-                @if($product->sale)
-                <div class="text-secondary">
-                    <del>NT.{{$product->price}}</del>
-                </div>
-                <div class="text-danger fw-bold">
-                    NT.{{$product->sale}}
-                </div>
-                @else
-                <div class="fw-bold">
-                    NT.{{$product->price}}
-                </div>
-                @endif
+                <a href="{{route('products.detail',['id'=>$product->id])}}">
+                    <img src="{{asset('images/'.$product->cover)}}" class="w-100">
+                    <h3>{{$product->title}}</h3>
+                    @if($product->sale)
+                    <div class="text-secondary">
+                        <del>NT.{{$product->price}}</del>
+                    </div>
+                    <div class="text-danger fw-bold">
+                        NT.{{$product->sale}}
+                    </div>
+                    @else
+                    <div class="fw-bold">
+                        NT.{{$product->price}}
+                    </div>
+                    @endif
+                </a>
             </div>
             @endforeach
         </div>

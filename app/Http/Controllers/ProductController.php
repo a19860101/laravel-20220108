@@ -134,4 +134,8 @@ class ProductController extends Controller
         $products = Product::orderBy('created_at','DESC')->where('category_id','=',$category->id)->get();
         return view('product.listWithCategory',compact('products'));
     }
+    public function detail($id){
+        $product = Product::findOrFail($id);
+        return view('product.detail',compact('product'));
+    }
 }

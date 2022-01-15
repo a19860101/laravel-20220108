@@ -8,20 +8,22 @@
         </div>
         @foreach ($new_products as $new)
         <div class="col-3">
-            <img src="{{asset('images/'.$new->cover)}}" class="w-100">
-            <h3>{{$new->title}}</h3>
-            @if($new->sale)
-            <div class="text-secondary">
-                <del>NT.{{$new->price}}</del>
-            </div>
-            <div class="text-danger fw-bold">
-                NT.{{$new->sale}}
-            </div>
-            @else
-            <div class="fw-bold">
-                NT.{{$new->price}}
-            </div>
-            @endif
+            <a href="{{route('products.detail',['id'=>$new->id])}}">
+                <img src="{{asset('images/'.$new->cover)}}" class="w-100">
+                <h3>{{$new->title}}</h3>
+                @if($new->sale)
+                <div class="text-secondary">
+                    <del>NT.{{$new->price}}</del>
+                </div>
+                <div class="text-danger fw-bold">
+                    NT.{{$new->sale}}
+                </div>
+                @else
+                <div class="fw-bold">
+                    NT.{{$new->price}}
+                </div>
+                @endif
+            </a>
         </div>
         @endforeach
     </div>
@@ -33,20 +35,22 @@
         </div>
         @foreach ($sale_products as $sale)
         <div class="col-3">
-            <img src="{{asset('images/'.$sale->cover)}}" class="w-100">
-            <h3>{{$sale->title}}</h3>
-            @if($sale->sale)
-            <div class="text-secondary">
-                <del>NT.{{$sale->price}}</del>
-            </div>
-            <div class="text-danger fw-bold">
-                NT.{{$sale->sale}}
-            </div>
-            @else
-            <div class="fw-bold">
-                NT.{{$sale->price}}
-            </div>
-            @endif
+            <a href="{{route('products.detail',['id'=>$sale->id])}}">
+                <img src="{{asset('images/'.$sale->cover)}}" class="w-100">
+                <h3>{{$sale->title}}</h3>
+                @if($sale->sale)
+                <div class="text-secondary">
+                    <del>NT.{{$sale->price}}</del>
+                </div>
+                <div class="text-danger fw-bold">
+                    NT.{{$sale->sale}}
+                </div>
+                @else
+                <div class="fw-bold">
+                    NT.{{$sale->price}}
+                </div>
+                @endif
+            </a>
         </div>
         @endforeach
     </div>
