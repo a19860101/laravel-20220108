@@ -1,6 +1,7 @@
 @extends('template.master')
 @section('main')
-<div class="container">
+@include('template.headerSmall')
+<div class="container my-5">
     <div class="row">
         @foreach($products as $product)
         <div class="col-3">

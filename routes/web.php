@@ -30,3 +30,4 @@ Route::resource('admin/product','ProductController')->middleware('auth');
 Route::resource('admin/category','CategoryController')->middleware('auth');
 
 Route::get('products','ProductController@list')->name('products.index');
+Route::get('/products/{slug}/{id}','ProductController@listWithCategory')->name('products.listWithCategory');

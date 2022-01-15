@@ -129,4 +129,10 @@ class ProductController extends Controller
         $products = Product::orderBy('created_at','DESC')->get();
         return view('product.index',compact('products'));
     }
+    public function listWithCategory($slug,$id){
+        $products = Product::orderBy('created_at','DESC')->where('category_id','=',$id)->get();
+        dd($products);
+        return $products;
+        // return view('product.index',compact('products'));
+    }
 }
