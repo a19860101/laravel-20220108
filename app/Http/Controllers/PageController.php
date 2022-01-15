@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     //
     public function index(){
-        $products = Product::get();
+        $products = Product::orderBy('created_at','DESC')->limit(4)->get();
         return view('index',compact('products'));
     }
 }
