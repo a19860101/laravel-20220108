@@ -17,6 +17,14 @@
             <input type="text" name="title" id="title">
         </div>
         <div>
+            <label for="category_id">分類</label>
+            <select name="category_id" id="category_id">
+                @foreach ($categories as $item)
+                <option value="{{$item->id}}">{{$item->title}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
             <label for="price">售價</label>
             <input type="text" name="price" id="price">
         </div>
