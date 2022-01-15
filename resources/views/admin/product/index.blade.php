@@ -22,7 +22,7 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->cover}}</td>
                         <td>
-                            <a href="" class='btn btn-success'>商品資料</a>
+                            <a href="{{route('product.show',['product'=>$product->id])}}" class='btn btn-success'>商品資料</a>
                             <a href="{{route('product.edit',['product'=>$product->id])}}" class="btn btn-info">編輯</a>
                             <form action="{{route('product.destroy',['product'=>$product->id])}}" method="post" class="d-inline-block">
                                 @csrf
