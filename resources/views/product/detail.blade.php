@@ -17,7 +17,7 @@
             </div>
             @else
             <div class="fw-bold">
-                {{$product->sale}}
+                {{$product->price}}
             </div>
             @endif
         </div>
