@@ -92,6 +92,17 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        if($request->file('cover')){
+            $ext = $request->file('cover')->getClientOriginalExtension();
+            $cover = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$cover,'public');
+        }
+
+        $product->fill($request->all());
+        $product->save();
+
+        // return Redirect::route('product.edit');
+        return redirect('admin/product/'.$product->id.'/edit');
     }
 
     /**

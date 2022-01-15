@@ -9,8 +9,9 @@
 <body>
     @include('admin.template.nav')
     <h2>編輯商品</h2>
-    <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('product.update',['product'=>$product->id])}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div>
             <label for="title">商品名稱</label>
             <input type="text" name="title" id="title" value="{{$product->title}}">
