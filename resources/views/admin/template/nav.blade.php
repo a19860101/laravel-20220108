@@ -5,17 +5,20 @@
             <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('product.create')}}">新增商品</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('category.create')}}">分類管理</a>
-            </li>
-        </ul>
+        @if(Auth::user()->role == 0)
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('product.create')}}">新增商品</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('category.create')}}">分類管理</a>
+                </li>
+            </ul>
+        @endif
         </div>
     </div>
 </nav>
+
