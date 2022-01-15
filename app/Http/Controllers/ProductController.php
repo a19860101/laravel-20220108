@@ -125,4 +125,8 @@ class ProductController extends Controller
 
         return Redirect::route('product.index');
     }
+    public function list(){
+        $products = Product::orderBy('created_at','DESC')->get();
+        return view('product.index',compact('products'));
+    }
 }

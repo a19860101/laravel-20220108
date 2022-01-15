@@ -1,0 +1,27 @@
+@extends('template.master')
+@section('main')
+<div class="container">
+    <div class="row">
+        @foreach($products as $product)
+        <div class="col-3">
+            <img src="{{asset('images/'.$product->cover)}}" class="w-100">
+            <div>
+                {{$product->title}}
+            </div>
+            @if($product->sale)
+            <div class="text-secondary">
+                <del>NT.{{$product->price}}</del>
+            </div>
+            <div class="text-danger fw-bold">
+                NT.{{$product->product}}
+            </div>
+            @else
+            <div class="fw-bold">
+                NT.{{$product->price}}
+            </div>
+            @endif
+        </div>
+        @endforeach
+    </div>
+</div>
+@endsection

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/','PageController@index');
+Route::get('/','PageController@index')->name('index');
 
 Route::get('admin',function(){
     return view('admin.index');
@@ -28,3 +28,5 @@ Route::get('admin',function(){
 
 Route::resource('admin/product','ProductController')->middleware('auth');
 Route::resource('admin/category','CategoryController')->middleware('auth');
+
+Route::get('products','ProductController@list')->name('products.index');
